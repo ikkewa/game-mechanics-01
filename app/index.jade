@@ -1,0 +1,25 @@
+doctype html
+html
+  head
+    meta(charset="utf-8")
+    meta(name="language", content="en")
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+
+    meta(name="author", content="")
+    meta(name="robots", content="index")
+    title mech01
+
+    // build:css css/style.css
+    link(href='css/style.css', rel='stylesheet')
+    // endbuild
+
+    // build:remove
+    script(src='js/devreload.js')
+    // endbuild
+
+    script(src='js/phaser.js')
+
+  body
+    #gamecanvas
+
+  script(src='js/build.js')
