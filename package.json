@@ -1,0 +1,45 @@
+{
+  "name": "gamei-mechanics-01",
+  "version": "0.0.1",
+  "private": true,
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browserify": "^10.2.4",
+    "debounce": "^1.0.0",
+    "del": "^1.2.0",
+    "commitizen": "^1.0.5",
+    "cz-conventional-changelog": "^1.1.2",
+    "gulp": "^3.9.0",
+    "gulp-cache": "^0.2.10",
+    "gulp-csso": "^1.0.0",
+    "gulp-foreach": "^0.1.0",
+    "gulp-if": "^1.2.5",
+    "gulp-imagemin": "^2.2.1",
+    "gulp-jade": "^1.0.1",
+    "gulp-jshint": "^1.11.0",
+    "gulp-livereload": "^3.8.0",
+    "gulp-serve": "^1.2.0",
+    "gulp-size": "^1.2.1",
+    "gulp-stylus": "^2.0.5",
+    "gulp-uglify": "^1.2.0",
+    "gulp-useref": "^1.2.0",
+    "jshint-stylish": "^2.0.0",
+    "nib": "^1.1.0",
+    "require-dir": "^0.3.0",
+    "run-sequence": "^1.1.1",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.2.2"
+  },
+  "dependencies": {
+    "phaser": "^2.4.2"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "commit": "git-cz"
+  },
+  "czConfig": {
+    "path": "node_modules/cz-conventional-changelog"
+  }
+}
