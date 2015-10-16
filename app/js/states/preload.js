@@ -69,7 +69,7 @@ Preload.prototype = {
    * to the `play` state.
    */
   create: function create() {
-    this.state.start('menu');
+    this.state.start('play');
   }
 };
 

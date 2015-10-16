@@ -1,5 +1,9 @@
 'use strict';
 
+var Pole = require('../prefabs/pole');
+var Platform = require('../prefabs/platform');
+var Player = require('../prefabs/player');
+
 /**
  * Play state - the actual game
  */
@@ -35,39 +39,16 @@ Play.prototype = {
    */
   create: function create() {
     this.stage.setBackgroundColor(0xffffff);  // set backgroundcolor of stage (white)
+    var centerY = this.game.height / 2;
 
-    this.platform = this.game.add.sprite(0, this.game.height / 2, 'block-black');
-    this.pole1 = this.game.add.sprite(200, this.game.height / 2, 'block-blue');
-    this.pole2 = this.game.add.sprite(350, this.game.height / 2, 'block-blue');
-    this.pole3 = this.game.add.sprite(500, this.game.height / 2, 'block-blue');
-    this.player = this.game.add.sprite(64, this.game.height / 2 - 32, 'block-red');
-
-    this.platform.scale.x = this.game.width / 32;
-    this.pole1.scale.y = 2;
-    this.pole2.scale.y = 4;
-    this.pole3.scale.y = 2.4;
-
-    this.pole1.anchor.setTo(0, 1);
-    this.pole2.anchor.setTo(0, 1);
-    this.pole3.anchor.setTo(0, 1);
-
-    // enable pyhsics for these objects
-    this.game.physics.arcade.enable([
-        this.platform, this.pole1, this.pole2, this.pole3, this.player]);
+    this.platform = new Platform(this.game, 0, centerY, this.game.width / 32);
+    this.player = new Player(this.game, 64, centerY - 32);
+    this.pole1 = new Pole(this.game, 200, centerY, 2);
+    this.pole2 = new Pole(this.game, 350, centerY, 4);
+    this.pole3 = new Pole(this.game, 500, centerY, 2.4);
 
     // enable gravity, so that elements "fall down"
     this.physics.arcade.gravity.y = 2000;
-
-    this.platform.body.immovable = true;
-    this.platform.body.allowGravity = false;
-    this.pole1.body.immovable = true;
-    this.pole1.body.allowGravity = false;
-    this.pole2.body.immovable = true;
-    this.pole2.body.allowGravity = false;
-    this.pole3.body.immovable = true;
-    this.pole3.body.allowGravity = false;
-
-    this.player.body.collideWorldBounds = true;
   },
 
   /**
@@ -79,19 +60,16 @@ Play.prototype = {
     this.game.physics.arcade.collide(this.player,
         [this.pole1, this.pole2, this.pole3]);
 
-    var v = 300;
-
     if(this.cursors.left.isDown) {
-      this.player.body.velocity.x = -v;
+      this.player.goLeft();
     } else if(this.cursors.right.isDown) {
-      this.player.body.velocity.x = v;
+      this.player.goRight();
     } else {
-      this.player.body.velocity.x = 0;
+      this.player.stopWalking();
     }
 
-    var isOnGround = this.player.body.touching.down;
-    if(isOnGround && this.cursors.up.isDown) {
-      this.player.body.velocity.y = -v * 2;
+    if(this.player.isOnGround() && this.cursors.up.isDown) {
+      this.player.jump();
     }
   },
 
