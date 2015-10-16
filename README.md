@@ -14,7 +14,7 @@ The result what this state will provide can be found on several other blogpost a
 To try this in you own, you need to pull the Git repository and run npm install. The environment is based around my phaser yeoman generator, which can be found [here](https://github.com/ikkewa/generator-phaser-alt). It will include everything to get a decent workflow running based on server great NodeJS tools.
 
 ```bash
-git clone git@github.com:ikkewa/generator-phaser-alt.git
+git clone https://github.com/ikkewa/game-mechanics-01
 npm install
 
 gulp
@@ -33,5 +33,5 @@ MIT © [IkkeWa](http://ikkewa.github.io/)
 ## Contact
 
 - Homepage: https://ikkewa.github.io/
-- Twitter: https://twitter.com/ikkewa_/
+- Twitter: https://twitter.com/ikkewa_
 
