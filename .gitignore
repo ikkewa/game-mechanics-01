@@ -32,7 +32,7 @@ Icon?
 /node_modules
 
 # BUILD files
-/dist/*
+#/dist/*
 
 # tmp files
 .tmp/
